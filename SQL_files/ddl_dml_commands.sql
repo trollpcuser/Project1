@@ -24,5 +24,3 @@ select * from car_info;
 /*drop table car_info;
 drop database car;
 show databases;*/
-
-
