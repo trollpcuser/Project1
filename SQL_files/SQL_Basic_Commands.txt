@@ -1,0 +1,71 @@
+/*create database college;
+use college;
+create table marks
+(
+sname varchar(20),
+lac int,
+ap int,
+pps int,
+bee int
+);*/
+insert into marks (sname,lac,ap,pps,bee) values ('      Srishanth',42,55,90,65);
+insert into marks (sname,lac,ap,pps,bee) values ('Shivaji',24,58,75,95);
+insert into marks (sname,lac,ap,pps,bee) values ('Professor',62,65,97,45);
+insert into marks (sname,lac,ap,pps,bee) values ('Giridher',92,85,60,95);
+insert into marks (sname,lac,ap,pps,bee) values ('Arun',92,85,90,61);
+insert into marks (sname,lac,ap,pps,bee) values ('Chiranjeevi',89,95,90,99);
+alter table marks drop column total;
+select * from marks;
+select sname from marks;
+select sname,pps from marks;
+select distinct pps from marks;
+select sname from marks where pps>40 and ap>70;
+select sname from marks where lac>75 or bee >88;
+select * from marks where not ap<50;
+select sname from marks where sname like '%i';
+select sname from marks where sname like 's%';
+select sname from marks where sname like 's%h';
+select sname from marks where sname like 'aru_';
+select sname from marks where sname like '_irid%';
+select min(pps) from marks;
+select max(pps) from marks;
+select count(*) from marks where bee>70;
+select sum(ap) from marks where pps>75;
+select ltrim(sname) from marks;
+select lower(sname) from marks;
+select upper(sname) from marks;
+select reverse(sname) from marks;
+select substring('I have PC',3,7);
+select sname from marks order by pps;
+/*select top 3 * from marks; 		note.... top command won't work on sql 
+   instead use below statement to get top
+*/
+select sname from marks where pps>70 limit 3;
+select sname from marks where pps>70 order by sname limit 3;
+select sname from marks where pps>80 group by sname;
+select pps from marks where lac>50 group by bee having pps>65 order by sname; 
+/* 			NOTE
+		In above statement, the column in having clause must be equal to coumun beside
+        select keyword.
+        Else use asterisk beside select keywork to get all data including pps
+*/
+set sql_safe_updates =0;
+/* 			Using of above statement removes an error while update a 
+			column in sql: the error is as follows:
+            Error Code: 1175. You are using safe update mode and you tried to update 
+            a table without a WHERE that uses a KEY column. To disable safe mode, 
+            toggle the option in Preferences -> SQL Editor and reconnect.
+*/
+update marks set pps=20,ap=20,lac=20,bee=20 where sname='Arun';
+select * from marks;
+
+
+
+
+
+
+
+
+
+
+
